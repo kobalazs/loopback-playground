@@ -1893,6 +1893,7 @@
       "outDir": "./dist",
       "rootDir": "./src",
       "project": "./tsconfig.json",
+      "watch": true,
       "configFilePath": "./tsconfig.json"
     },
     "referencedMap": {
