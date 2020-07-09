@@ -16,9 +16,11 @@ import {
   del,
   requestBody,
 } from '@loopback/rest';
+import {authenticate} from '@loopback/authentication';
 import {Todo, TodoList} from '../models';
 import {TodoRepository} from '../repositories';
 
+@authenticate('jwt')
 export class TodoController {
   constructor(
     @repository(TodoRepository)
@@ -81,7 +83,6 @@ export class TodoController {
   async find(
     @param.filter(Todo) filter?: Filter<Todo>,
   ): Promise<Todo[]> {
-    console.log(filter);
     return this.todoRepository.find(filter);
   }
 
